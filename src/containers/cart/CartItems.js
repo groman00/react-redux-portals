@@ -1,17 +1,21 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeItem } from './actions';
 
 const CartItems = ({ items, removeFromCart }) => (
-  <ul>
-    { items.map((item, i) => (
-      <li key={i}>
-        {item.timestamp}
-        <button onClick={() => removeFromCart(i)}>Remove</button>
-      </li>
-    )) }
-  </ul>
+  ReactDOM.createPortal(
+    <ul>
+      { items.map((item, i) => (
+        <li key={i}>
+          {item.timestamp}
+          <button onClick={() => removeFromCart(i)}>Remove</button>
+        </li>
+      )) }
+    </ul>,
+    document.getElementById('cart'),
+  )
 );
 
 CartItems.propTypes = {
