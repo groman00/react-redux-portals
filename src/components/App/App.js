@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import CartItems from './containers/cart/CartItems';
-import AddToCart from './containers/cart/AddToCart';
-import './App.css';
+import CartItems from '../../containers/cart/CartItems';
+import AddToCart from '../../containers/cart/AddToCart';
 
 class App extends Component {
   render() {
